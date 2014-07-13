@@ -292,8 +292,10 @@ def call_find_object(object_name,world): #TODO
         
         out = 'aborted'
         tries = 0
-    
+        
+        rospy.logwarn("FIND OBJECT, NEXT WE WILL GET CURRENT POSITION IN FIND OBJECT.")
         current_position = world.get_current_position()        
+        rospy.logwarn("OUR CURRENT POSITION IS: " + str(current_position))
         if current_position in ROOMS:
             room = rospy.get_param('/robocup_params/room/' + current_position.replace(" ","_"))
                 
